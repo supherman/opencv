@@ -808,7 +808,7 @@ bool CvCapture_FFMPEG::open( const char* _filename )
 #endif
 
 #if LIBAVFORMAT_BUILD >= CALC_FFMPEG_VERSION(52, 111, 0)
-    av_dict_set(&dict, "rtsp_transport", "tcp", 0);
+    av_dict_set(&dict, "rtsp_transport", "udp", 0);
     int err = avformat_open_input(&ic, _filename, NULL, &dict);
 #else
     int err = av_open_input_file(&ic, _filename, NULL, 0, NULL);
